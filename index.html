@@ -2,43 +2,107 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Surat Valentine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="valentine-confession.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Musik -->
-  <audio id="bgm" autoplay loop>
-    <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgm" loop>
+  <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg" />
+</audio>
 
-  <p class="instruction">Tekan ❤️ buat buka surat, lalu tekan "Lanjut ➡️"</p>
+<div class="nav-buttons">
+  <button class="btn" onclick="prevSlide()">⬅️ Kembali</button>
+  <button class="btn" onclick="nextSlide()">Lanjut ➡️</button>
+</div>
 
-  <div id="slides" class="slides">
-    <!-- Slide 1: Surat -->
-    <div class="slide slide1">
-      <div class="container">
-        <input id="messageState" type="checkbox" style="display:none"/>
-        <label for="messageState">
-          <div class="heart">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg" />
-          </div>
-        </label>
-        <div class="message closed">
-          <h1 style="font-family: Cinzel, serif;">for u who i love the most</h1>
-          <p>
-            &emsp; haiii mischaa, sebenernya tuh aku ngga sekolah juga alasannya lagi nyiapin ini tauu wkwkwkwkw, baca baik baik yaa<br><br>
-            &emsp; mischa, aku tau kamu pasti sebenernya kesel dan muak sama apa yang aku lakuin akhir akhir ini, aku pas udah waras langsung nonjok diri aku kok hehe, untuk yg terbaru soal adik kelas, aku ga ada ngomong ke dia kok, karena kalau gitu berarti aku ga percaya sama kamu, yg repost juga itu aku juga lagi ga waras dan aku langsung nonjok kok, suer. Maaf ya karena aku masih bersikap kekanak kanakan, aku bakal lebih dewasa pokoknya, aku bakal bikin bukan cuma aku yg nyaman pas sama kamu, tapi kamu juga ngerasain hal spesial dari aku, love you mischaa
-          </p>
-          <div class="sincere">
-            <p><strong>dari Arip</strong></p>
-            <p>someone who love you the most</p>
-          </div>
+<div id="slides" class="slides">
+  <!-- Slide 1: Surat -->
+  <div class="slide slide1">
+    <p class="instruction">Tekan ❤️ buat buka surat, lalu klik "Lanjut ➡️"</p>
+    <div class="container">
+      <input id="messageState" type="checkbox" style="display:none" />
+      <label for="messageState">
+        <div class="heart">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg" />
+        </div>
+      </label>
+      <div class="message closed">
+        <h1>for u who i love the most</h1>
+        <p>
+          &emsp; haiii mischaa, sebenernya tuh aku ngga sekolah juga alasannya lagi nyiapin ini tauu wkwkwkwkw, baca baik baik yaa<br><br>
+          &emsp; mischa, aku tau kamu pasti sebenernya kesel dan muak sama apa yang aku lakuin akhir akhir ini, aku pas udah waras langsung nonjok diri aku kok hehe, untuk yg terbaru soal adik kelas, aku ga ada ngomong ke dia kok, karena kalau gitu berarti aku ga percaya sama kamu, yg repost juga itu aku juga lagi ga waras dan aku langsung nonjok kok, suer. Maaf ya karena aku masih bersikap kekanak kanakan, aku bakal lebih dewasa pokoknya, aku bakal bikin bukan cuma aku yg nyaman pas sama kamu, tapi kamu juga ngerasain hal spesial dari aku, love you mischaa
+        </p>
+        <div class="sincere">
+          <p><strong>dari Arip</strong></p>
+          <p>someone who love you the most</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Slide 2: Video -->
-    <div class="
+  <!-- Slide 2: Video -->
+  <div class="slide slide2">
+    <h2>🎥 Ini buat kamu</h2>
+    <iframe src="https://www.youtube.com/embed/xTZeM9EJlMA" allowfullscreen></iframe>
+  </div>
+
+  <!-- Slide 3: Bunga -->
+  <div class="slide slide3">
+    <h2>💐 Dari Arip buat Mischaa</h2>
+    <div id="flowersContent">Loading konten bunga...</div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+  let currentSlide = 0;
+  const slideEl = document.getElementById('slides');
+  const bgm = document.getElementById('bgm');
+
+  function updateSlide() {
+    slideEl.style.transform = `translateX(-${currentSlide * 100}vw)`;
+
+    if (currentSlide === 1) {
+      bgm.pause();
+    } else {
+      bgm.play().catch(() => {});
+    }
+
+    if (currentSlide === 2) {
+      $('#flowersContent').load('https://akariiff.github.io/flowers-for-her/');
+    }
+  }
+
+  function nextSlide() {
+    if (currentSlide < 2) {
+      currentSlide++;
+      updateSlide();
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+      updateSlide();
+    }
+  }
+
+  $(document).ready(function () {
+    $('#messageState').change(function () {
+      const msg = $('.message'), heart = $('.heart');
+      if (this.checked) {
+        bgm.play().catch(() => {});
+        msg.removeClass('closeNor').addClass('openNor');
+        heart.removeClass('closeHer').addClass('openHer');
+      } else {
+        msg.removeClass('openNor').addClass('closeNor');
+        heart.removeClass('openHer').addClass('closeHer');
+      }
+    });
+  });
+</script>
+</body>
+</html>
