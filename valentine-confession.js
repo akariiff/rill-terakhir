@@ -1,4 +1,3 @@
-
 let currentSlide = 0;
 const slideEl = document.getElementById('slides');
 const bgm = document.getElementById('bgm');
@@ -34,7 +33,6 @@ function prevSlide() {
 $(document).ready(function () {
   $('#messageState').change(function () {
     const msg = $('.message'), heart = $('.heart');
-
     if (this.checked) {
       bgm.play().catch(() => {});
       msg.removeClass('closeNor').addClass('openNor');
