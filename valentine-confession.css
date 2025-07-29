@@ -1,4 +1,4 @@
-/* === UMUM === */
+/* === RESET & UMUM === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,12 +13,13 @@ html, body {
   touch-action: pan-y;
 }
 
+/* === SLIDES === */
 .slides {
   display: flex;
   width: 300vw;
   height: 100vh;
   transition: transform 0.8s ease-in-out;
-  overflow: hidden;
+  overflow: hidden; /* cegah geser horizontal */
 }
 
 .slide {
@@ -30,6 +31,7 @@ html, body {
   position: relative;
 }
 
+/* === SETIAP SLIDE === */
 .slide1 { background: #fce4ec; }
 .slide2 {
   background: #000;
@@ -44,9 +46,10 @@ html, body {
 .container {
   height: 100%;
   position: relative;
-  padding-bottom: 80px; /* space for fixed nav */
+  padding-bottom: 100px; /* biar tombol ga ketiban scroll */
 }
 
+/* === HEART & MESSAGE === */
 .heart {
   width: 80px;
   height: 80px;
@@ -81,7 +84,7 @@ html, body {
   color: rgba(255, 20, 147, 0.7);
 }
 
-/* === Tombol Navigasi FIXED === */
+/* === TOMBOL NAVIGASI FIXED === */
 .nav-buttons {
   position: fixed;
   bottom: 12px;
@@ -114,7 +117,7 @@ html, body {
   }
 
   .slide {
-    padding-bottom: 80px;
+    padding-bottom: 100px;
   }
 
   .message {
