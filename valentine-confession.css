@@ -19,7 +19,7 @@ html, body {
   width: 300vw;
   height: 100vh;
   transition: transform 0.8s ease-in-out;
-  overflow: hidden; /* cegah geser horizontal */
+  overflow: hidden;
 }
 
 .slide {
@@ -31,25 +31,45 @@ html, body {
   position: relative;
 }
 
-/* === SETIAP SLIDE === */
+/* === SLIDE KONTEN === */
 .slide1 { background: #fce4ec; }
+
 .slide2 {
   background: #000;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 100px;
+  justify-content: flex-start;
+  padding: 80px 20px 120px; /* atas | samping | bawah */
   position: relative;
-  z-index: 1; /* tambahkan ini */
+  z-index: 1;
 }
-.slide3 { background: #fff; }
+
+.slide2 h2 {
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.slide2 iframe {
+  width: 90%;
+  height: 55vh;
+  border: none;
+  border-radius: 12px;
+  z-index: 1;
+  position: relative;
+}
+
+.slide3 {
+  background: #fff;
+  padding-bottom: 100px;
+}
 
 .container {
   height: 100%;
   position: relative;
-  padding-bottom: 100px; /* biar tombol ga ketiban scroll */
+  padding-bottom: 120px;
 }
 
 /* === HEART & MESSAGE === */
@@ -87,7 +107,7 @@ html, body {
   color: rgba(255, 20, 147, 0.7);
 }
 
-/* === TOMBOL NAVIGASI FIXED === */
+/* === NAVIGASI FIXED === */
 .nav-buttons {
   position: fixed;
   bottom: 12px;
@@ -110,10 +130,8 @@ html, body {
   cursor: pointer;
   font-size: 0.95rem;
   white-space: nowrap;
-  position: relative;
-  z-index: 2; /* tambahkan ini */
+  z-index: 9999;
 }
-
 
 /* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 768px) {
@@ -131,22 +149,13 @@ html, body {
     padding-bottom: 60px;
   }
 
-  iframe {
-    height: 55vh;
-    max-width: 90vw;
-  }
-
   .instruction {
     font-size: 0.95rem;
     padding: 0 10px;
     text-align: center;
   }
-}
-.slide2 iframe {
-  z-index: 0 !important;
-  position: relative;
-}
-.slide2 h2 {
-  z-index: 1;
-  position: relative;
+
+  .slide2 iframe {
+    height: 50vh;
+  }
 }
