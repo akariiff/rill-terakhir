@@ -1,24 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Surat Valentine</title>
-  <link rel="stylesheet" href="valentine-confession.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="valentine-confession.css" />
 </head>
 <body>
-  <p class="instruction">Tekan ❤️ untuk buka surat, lalu tekan "Lanjut ➡️"</p>
+
+  <!-- Musik -->
+  <audio id="bgm" autoplay loop>
+    <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg">
+  </audio>
+
+  <p class="instruction">Tekan ❤️ buat buka surat, lalu tekan "Lanjut ➡️"</p>
+
   <div id="slides" class="slides">
     <!-- Slide 1: Surat -->
     <div class="slide slide1">
       <div class="container">
-        <label>
+        <input id="messageState" type="checkbox" style="display:none"/>
+        <label for="messageState">
           <div class="heart">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg" />
           </div>
-          <input id="messageState" type="checkbox" style="display:none"/>
         </label>
         <div class="message closed">
           <h1 style="font-family: Cinzel, serif;">for u who i love the most</h1>
@@ -35,31 +41,4 @@
     </div>
 
     <!-- Slide 2: Video -->
-    <div class="slide slide2">
-      <h2>🎥 Ini buat kamu</h2>
-      <iframe src="https://www.youtube.com/embed/xTZeM9EJlMA" allowfullscreen></iframe>
-    </div>
-
-    <!-- Slide 3: Bunga -->
-    <div class="slide slide3">
-      <h2>💐 Dari Arip buat Mischaa</h2>
-      <div id="flowersContent">Loading konten bunga...</div>
-    </div>
-  </div>
-
-  <!-- Navigasi -->
-  <div class="nav-buttons">
-    <button class="btn" onclick="prevSlide()">⬅️ Kembali</button>
-    <button class="btn" onclick="nextSlide()">Lanjut ➡️</button>
-  </div>
-
-  <!-- Musik -->
-  <audio id="bgm" autoplay loop>
-    <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg">
-    Browser kamu nggak support audio.
-  </audio>
-
-  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="valentine-confession.js"></script>
-</body>
-</html>
+    <div class="
