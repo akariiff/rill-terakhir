@@ -10,7 +10,6 @@ function updateSlide() {
   } else {
     bgm.play().catch(() => {});
   }
-
 }
 
 function nextSlide() {
@@ -39,4 +38,7 @@ $(document).ready(function () {
       heart.removeClass('openHer');
     }
   });
+
+  // Disable swipe geser manual (opsional tambahan jaga-jaga)
+  slideEl.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
 });
