@@ -1,20 +1,18 @@
-/* === RESET & UMUM === */
+/* === UMUM === */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html, body {
   font-family: 'Quicksand', sans-serif;
+  height: 100%;
   overflow: hidden;
   overscroll-behavior-x: none;
   touch-action: pan-y;
-  user-scalable: no;
-  -webkit-user-drag: none;
-  -ms-touch-action: pan-y;
 }
 
-/* === SLIDES === */
 .slides {
   display: flex;
   width: 300vw;
@@ -22,6 +20,7 @@ html, body {
   transition: transform 0.8s ease-in-out;
   overflow: hidden;
 }
+
 .slide {
   width: 100vw;
   height: 100vh;
@@ -45,9 +44,9 @@ html, body {
 .container {
   height: 100%;
   position: relative;
+  padding-bottom: 80px; /* space for fixed nav */
 }
 
-/* === HATI & SURAT === */
 .heart {
   width: 80px;
   height: 80px;
@@ -55,13 +54,11 @@ html, body {
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
-.heart img {
-  width: 100%;
-  height: 100%;
-}
+.heart img { width: 100%; height: 100%; }
 .heart.openHer {
   transform: scale(1.2) rotate(10deg);
 }
+
 .message {
   opacity: 0;
   transform: translateY(50px);
@@ -77,39 +74,52 @@ html, body {
   transform: translateY(0);
 }
 
-/* === TOMBOL NAVIGASI === */
+.instruction {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: rgba(255, 20, 147, 0.7);
+}
+
+/* === Tombol Navigasi FIXED === */
 .nav-buttons {
   position: fixed;
-  bottom: 15px;
-  width: 100%;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  z-index: 9999;
+  gap: 10px;
   padding: 0 10px;
   pointer-events: auto;
 }
+
 .btn {
   padding: 10px 16px;
   background: hotpink;
   color: white;
   border: none;
   border-radius: 20px;
-  font-size: 1rem;
   cursor: pointer;
+  font-size: 0.95rem;
   white-space: nowrap;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 768px) {
   .btn {
     padding: 10px 14px;
     font-size: 0.9rem;
   }
 
+  .slide {
+    padding-bottom: 80px;
+  }
+
   .message {
     font-size: 0.95rem;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
   }
 
   iframe {
