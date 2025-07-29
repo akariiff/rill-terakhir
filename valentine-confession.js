@@ -11,14 +11,6 @@ function updateSlide() {
     bgm.play().catch(() => {});
   }
 
-  if (currentSlide === 2) {
-  $('#flowersContent').load('https://akariiff.github.io/flowers-for-her/index.html', function(response, status) {
-    if (status !== 'success') {
-      $('#flowersContent').html('<p>Gagal memuat bunga 😔</p>');
-    }
-  });
-}
-
 }
 
 function nextSlide() {
