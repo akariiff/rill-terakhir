@@ -35,11 +35,11 @@ $(document).ready(function () {
     const msg = $('.message'), heart = $('.heart');
     if (this.checked) {
       bgm.play().catch(() => {});
-      msg.removeClass('closeNor').addClass('openNor');
-      heart.removeClass('closeHer').addClass('openHer');
+      msg.addClass('openNor');
+      heart.addClass('openHer');
     } else {
-      msg.removeClass('openNor').addClass('closeNor');
-      heart.removeClass('openHer').addClass('closeHer');
+      msg.removeClass('openNor');
+      heart.removeClass('openHer');
     }
   });
 });
