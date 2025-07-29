@@ -2,26 +2,21 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Surat Valentine</title>
   <link rel="stylesheet" href="valentine-confession.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Quicksand&display=swap" rel="stylesheet" />
 </head>
 <body>
 
 <audio id="bgm" loop>
-  <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg" />
+  <source src="https://archive.org/download/jm2023-03-11.EJL95/28%20You're%20Gonna%20Live%20Forever%20in%20Me.mp3" type="audio/mpeg">
 </audio>
-
-<div class="nav-buttons">
-  <button class="btn" onclick="prevSlide()">⬅️ Kembali</button>
-  <button class="btn" onclick="nextSlide()">Lanjut ➡️</button>
-</div>
 
 <div id="slides" class="slides">
   <!-- Slide 1: Surat -->
   <div class="slide slide1">
-    <p class="instruction">Tekan ❤️ buat buka surat, lalu klik "Lanjut ➡️"</p>
+    <p class="instruction">Tekan ❤️ lalu klik "Lanjut ➡️"</p>
     <div class="container">
       <input id="messageState" type="checkbox" style="display:none" />
       <label for="messageState">
@@ -56,53 +51,14 @@
   </div>
 </div>
 
+<!-- Tombol Navigasi -->
+<div class="nav-buttons">
+  <button class="btn" onclick="prevSlide()">⬅️ Kembali</button>
+  <button class="btn" onclick="nextSlide()">Lanjut ➡️</button>
+</div>
+
 <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-<script>
-  let currentSlide = 0;
-  const slideEl = document.getElementById('slides');
-  const bgm = document.getElementById('bgm');
+<script src="valentine-confession.js"></script>
 
-  function updateSlide() {
-    slideEl.style.transform = `translateX(-${currentSlide * 100}vw)`;
-
-    if (currentSlide === 1) {
-      bgm.pause();
-    } else {
-      bgm.play().catch(() => {});
-    }
-
-    if (currentSlide === 2) {
-      $('#flowersContent').load('https://akariiff.github.io/flowers-for-her/');
-    }
-  }
-
-  function nextSlide() {
-    if (currentSlide < 2) {
-      currentSlide++;
-      updateSlide();
-    }
-  }
-
-  function prevSlide() {
-    if (currentSlide > 0) {
-      currentSlide--;
-      updateSlide();
-    }
-  }
-
-  $(document).ready(function () {
-    $('#messageState').change(function () {
-      const msg = $('.message'), heart = $('.heart');
-      if (this.checked) {
-        bgm.play().catch(() => {});
-        msg.removeClass('closeNor').addClass('openNor');
-        heart.removeClass('closeHer').addClass('openHer');
-      } else {
-        msg.removeClass('openNor').addClass('closeNor');
-        heart.removeClass('openHer').addClass('closeHer');
-      }
-    });
-  });
-</script>
 </body>
 </html>
