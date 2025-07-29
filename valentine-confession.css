@@ -40,8 +40,9 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 100px; /* TAMBAHKAN INI */
+  padding-bottom: 100px;
   position: relative;
+  z-index: 1; /* tambahkan ini */
 }
 .slide3 { background: #fff; }
 
@@ -109,7 +110,10 @@ html, body {
   cursor: pointer;
   font-size: 0.95rem;
   white-space: nowrap;
+  position: relative;
+  z-index: 2; /* tambahkan ini */
 }
+
 
 /* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 768px) {
@@ -137,4 +141,8 @@ html, body {
     padding: 0 10px;
     text-align: center;
   }
+}
+.slide2 iframe {
+  z-index: 0 !important;
+  position: relative;
 }
