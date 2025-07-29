@@ -88,29 +88,40 @@ iframe {
 /* Responsive untuk mobile */
 @media screen and (max-width: 768px) {
   .nav-buttons {
-    bottom: 10px;
-    flex-direction: column;
+    bottom: 20px;
     display: flex;
+    justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
   }
 
   .btn {
-    width: 90%;
+    padding: 10px 16px;
+    width: auto;
+    font-size: 0.9rem;
+    white-space: nowrap;
     margin: 5px auto;
-    font-size: 1rem;
-  }
-
-  iframe {
-    height: 60vh;
-  }
-
-  .instruction {
-    font-size: 1rem;
-    padding: 0 10px;
   }
 
   .message {
-    padding-bottom: 100px; /* biar tombol ga ketimpa */
+    padding-bottom: 80px; /* Tambahin jarak bawah biar ga mentok tombol */
+  }
+
+  .slide {
+    padding-bottom: 80px;
+  }
+
+  iframe {
+    height: 55vh;
+    max-width: 90vw;
+  }
+
+  .instruction {
+    font-size: 0.95rem;
+    padding: 0 10px;
+    text-align: center;
   }
 }
-
