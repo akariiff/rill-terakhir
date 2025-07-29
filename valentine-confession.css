@@ -85,3 +85,32 @@ iframe {
   font-size: 1.2rem;
   color: rgba(255, 20, 147, 0.7);
 }
+/* Responsive untuk mobile */
+@media screen and (max-width: 768px) {
+  .nav-buttons {
+    bottom: 10px;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 90%;
+    margin: 5px auto;
+    font-size: 1rem;
+  }
+
+  iframe {
+    height: 60vh;
+  }
+
+  .instruction {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .message {
+    padding-bottom: 100px; /* biar tombol ga ketimpa */
+  }
+}
+
