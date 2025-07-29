@@ -92,7 +92,7 @@ iframe {
   }
 
   .slides {
-    /* Jangan ubah flex-direction! Tetap row untuk slide horizontal */
+    flex-direction: row;
     width: 300vw;
     height: 100vh;
   }
@@ -101,7 +101,7 @@ iframe {
     width: 100vw;
     height: 100vh;
     overflow-y: auto;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
   }
 
   .nav-buttons {
@@ -129,7 +129,7 @@ iframe {
   }
 
   iframe {
-    height: 50vh;
+    height: 60vh;
     max-width: 90vw;
   }
 
@@ -137,38 +137,5 @@ iframe {
     font-size: 0.95rem;
     padding: 0 10px;
     text-align: center;
-  }
-}
-.message.closed {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.5s ease-in-out;
-}
-
-.message.openNor {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.heart.openHer {
-  transform: scale(1.2) rotate(10deg);
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow: hidden;
-  }
-
-  .slides {
-    flex-direction: row;
-    width: 300vw;
-    height: 100vh;
-  }
-
-  .slide {
-    width: 100vw;
-    height: 100vh;
-    overflow-y: auto;
-    padding-bottom: 80px;
   }
 }
