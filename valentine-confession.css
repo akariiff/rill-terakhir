@@ -1,8 +1,13 @@
-/* === UMUM === */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
+/* === FIX STYLE TERBARU === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
   font-family: 'Quicksand', sans-serif;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   overscroll-behavior-x: none;
   touch-action: pan-y;
@@ -22,6 +27,7 @@ body {
   flex-shrink: 0;
   padding: 20px;
   overflow-y: auto;
+  position: relative;
 }
 
 .slide1 { background: #fce4ec; }
@@ -35,7 +41,10 @@ body {
 }
 .slide3 { background: #fff; }
 
-.container { position: relative; height: 100%; }
+.container {
+  position: relative;
+  height: 100%;
+}
 
 .heart {
   width: 80px;
@@ -44,7 +53,10 @@ body {
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
-.heart img { width: 100%; height: 100%; }
+.heart img {
+  width: 100%;
+  height: 100%;
+}
 .heart.openHer {
   transform: scale(1.2) rotate(10deg);
 }
@@ -58,6 +70,8 @@ body {
   border-radius: 12px;
   margin-top: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-height: 60vh;
+  overflow-y: auto;
 }
 .message.openNor {
   opacity: 1;
@@ -69,23 +83,32 @@ body {
   margin-top: 10px;
   font-size: 1.2rem;
   color: rgba(255, 20, 147, 0.7);
+  padding: 0 10px;
 }
 
-/* === TOMBOL NAVIGASI === */
+iframe {
+  max-width: 90vw;
+  max-height: 60vh;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+/* === Tombol navigasi selalu muncul dan nempel bawah === */
 .nav-buttons {
   position: fixed;
-  bottom: 15px;
+  bottom: 10px;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
   z-index: 9999;
   padding: 0 10px;
 }
 
 .btn {
-  padding: 10px 18px;
+  padding: 10px 16px;
   background: hotpink;
   color: white;
   border: none;
@@ -98,27 +121,24 @@ body {
 /* === RESPONSIVE MOBILE === */
 @media screen and (max-width: 768px) {
   .btn {
-    padding: 10px 14px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding: 10px 12px;
   }
 
   .slide {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
 
   .message {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding-bottom: 80px;
   }
 
   iframe {
     height: 55vh;
-    max-width: 90vw;
   }
 
   .instruction {
     font-size: 0.95rem;
-    padding: 0 10px;
-    text-align: center;
   }
 }
