@@ -39,6 +39,16 @@ $(document).ready(function () {
     }
   });
 
-  // Disable swipe geser manual (opsional tambahan jaga-jaga)
-  slideEl.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+  // Cegah swipe horizontal hanya pada slides, tapi tetap izinkan klik elemen dalamnya
+  slideEl.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) return; // multi-touch? skip
+    this._startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  slideEl.addEventListener('touchmove', function(e) {
+    const deltaX = e.touches[0].clientX - this._startX;
+    if (Math.abs(deltaX) > 10) {
+      e.preventDefault(); // cegah geser horizontal
+    }
+  }, { passive: false });
 });
